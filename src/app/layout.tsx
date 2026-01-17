@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dalimer Media - Classic Literature, Reimagined",
-  description: "Transform timeless classics into engaging podcasts, study guides, and visual breakdowns. Learn faster, understand deeper.",
-  keywords: "audiobooks, podcasts, classic literature, study guides, Bible, Meditations, Art of War",
+  title: "DM Intermedia - Classic Literature, Reimagined",
+  description: "Transform timeless classics into engaging podcasts, study guides, videos, flashcards, and visual breakdowns. Learn faster, understand deeper.",
+  keywords: "audiobooks, podcasts, classic literature, study guides, flashcards, infographics, Bible, Meditations, Art of War",
   openGraph: {
-    title: "Dalimer Media - Classic Literature, Reimagined",
-    description: "Transform timeless classics into engaging podcasts and study guides.",
+    title: "DM Intermedia - Classic Literature, Reimagined",
+    description: "Transform timeless classics into engaging podcasts, videos, and study guides.",
     type: "website",
   },
 };
@@ -23,7 +23,7 @@ export default function RootLayout({
         <nav className="bg-brand-navy text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
           <div className="max-w-6xl mx-auto flex justify-between items-center">
             <a href="/" className="text-2xl font-bold tracking-tight">
-              <span className="text-brand-gold">DALIMER</span> MEDIA
+              <span className="text-brand-gold">DM</span> INTERMEDIA
             </a>
             <div className="flex gap-6 items-center">
               <a href="/#titles" className="hover:text-brand-gold transition-colors">
@@ -49,7 +49,7 @@ export default function RootLayout({
             <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-xl font-bold mb-4">
-                  <span className="text-brand-gold">DALIMER</span> MEDIA
+                  <span className="text-brand-gold">DM</span> INTERMEDIA
                 </h3>
                 <p className="text-gray-300">
                   Transforming classic literature into modern learning experiences.
@@ -73,9 +73,9 @@ export default function RootLayout({
               </div>
             </div>
             <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-              <p>© 2026 Dalimer Media Inc. All rights reserved.</p>
+              <p>© 2026 Dalimer Corporation. All Rights Reserved.</p>
               <p className="text-sm mt-2">
-                Original transformative content © Dalimer Media. Underlying public domain texts are not subject to this copyright.
+                Original transformative content © DM Intermedia. Underlying public domain texts are not subject to this copyright.
               </p>
             </div>
           </div>
