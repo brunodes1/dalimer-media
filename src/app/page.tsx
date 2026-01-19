@@ -40,7 +40,7 @@ export default function Home() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Every Package Includes
+            Every Package Includes 8 Files
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
@@ -68,8 +68,8 @@ export default function Home() {
               <div className="w-16 h-16 bg-brand-navy/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="w-8 h-8 text-brand-navy" />
               </div>
-              <h3 className="font-semibold mb-2">FAQ Document</h3>
-              <p className="text-gray-600 text-sm">Common questions answered with context</p>
+              <h3 className="font-semibold mb-2">Original Text</h3>
+              <p className="text-gray-600 text-sm">Complete public domain source text included</p>
             </div>
           </div>
         </div>
@@ -82,8 +82,8 @@ export default function Home() {
             Our Collection
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            10 timeless classics transformed into modern learning experiences. 
-            Each package is just $4.99.
+            11 timeless classics transformed into modern learning experiences. 
+            Each package is just $14.99.
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -157,7 +157,11 @@ export default function Home() {
                     <>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>All 10 title packages</span>
+                        <span>All 11 title packages</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-brand-gold" />
+                        <span>88 total files</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-5 h-5 text-brand-gold" />
@@ -167,16 +171,16 @@ export default function Home() {
                         <CheckCircle className="w-5 h-5 text-brand-gold" />
                         <span>Complete PDF library</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>All infographics</span>
-                      </li>
                     </>
                   ) : (
                     <>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-5 h-5 text-brand-gold" />
                         <span>Choose any 3 titles</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-brand-gold" />
+                        <span>24 total files</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-5 h-5 text-brand-gold" />
@@ -219,11 +223,11 @@ export default function Home() {
               <p className="text-gray-600">Minutes per podcast</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-brand-navy">10</p>
+              <p className="text-4xl font-bold text-brand-navy">11</p>
               <p className="text-gray-600">Classic titles</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-brand-navy">$4.99</p>
+              <p className="text-4xl font-bold text-brand-navy">$14.99</p>
               <p className="text-gray-600">Per package</p>
             </div>
           </div>

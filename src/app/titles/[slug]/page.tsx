@@ -1,7 +1,8 @@
 import { products, getProductBySlug } from "@/lib/products";
 import { notFound } from "next/navigation";
-import { Headphones, FileText, ImageIcon, CheckCircle, ArrowLeft, Download } from "lucide-react";
+import { Headphones, FileText, ImageIcon, CheckCircle, ArrowLeft, Video, BookOpen, Presentation, Image, FileType } from "lucide-react";
 import Link from "next/link";
+import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -18,10 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${product.title} - Dalimer Media`,
+    title: `${product.title} - DM Intermedia`,
     description: product.description,
     openGraph: {
-      title: `${product.title} - Podcast & Study Guide`,
+      title: `${product.title} - Complete Digital Collection`,
       description: product.description,
     },
   };
@@ -38,6 +39,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const relatedProducts = products
     .filter((p) => p.id !== product.id)
     .slice(0, 3);
+
+  const packageIcons = [
+    { name: "Audio Conversation", icon: Headphones, desc: "Podcast-style discussion" },
+    { name: "Video Overview", icon: Video, desc: "Visual presentation" },
+    { name: "Infographic", icon: Image, desc: "Visual summary" },
+    { name: "Detailed Report", icon: FileText, desc: "In-depth analysis" },
+    { name: "Slide Deck", icon: Presentation, desc: "Presentation slides" },
+    { name: "Original Text", icon: BookOpen, desc: "Complete source text" },
+    { name: "Cover Art", icon: ImageIcon, desc: "High-quality artwork" },
+    { name: "Summary Guide", icon: FileType, desc: "Quick reference" },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -107,35 +119,30 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <div className="flex justify-between items-center mb-4">
                   <div>
                     <p className="text-sm text-gray-500">Complete Package</p>
-                    <p className="text-4xl font-bold text-brand-navy">${product.price}</p>
+                    <div className="flex items-baseline gap-2">
+                      <p className="text-4xl font-bold text-brand-navy">${product.price}</p>
+                      <p className="text-lg text-gray-400 line-through">${product.compareAtPrice}</p>
+                    </div>
                   </div>
                   <div className="text-right">
                     <p className="text-green-600 font-semibold">Instant Download</p>
-                    <p className="text-sm text-gray-500">PDF + MP3 files</p>
+                    <p className="text-sm text-gray-500">8 files included</p>
                   </div>
                 </div>
                 
-                {/* Shopify Buy Button Placeholder */}
-                <div 
-                  id={`shopify-buy-button-${product.id}`}
-                  className="mb-4"
-                >
-                  <button 
-                    className="w-full bg-brand-gold text-brand-navy py-4 rounded-xl font-bold text-lg hover:bg-yellow-500 transition-colors btn-pulse flex items-center justify-center gap-2"
-                  >
-                    <Download className="w-5 h-5" />
-                    Buy Now - ${product.price}
-                  </button>
-                  <p className="text-center text-xs text-gray-500 mt-2">
-                    Secure checkout powered by Shopify
-                  </p>
+                {/* Shopify Buy Button */}
+                <div className="mb-4">
+                  <ShopifyBuyButton 
+                    shopifyProductId={product.shopifyProductId}
+                    buttonText={`Buy Now - $${product.price}`}
+                  />
                 </div>
                 
                 {/* Trust Signals */}
-                <div className="flex justify-center gap-6 text-sm text-gray-500">
+                <div className="flex justify-center gap-6 text-sm text-gray-500 mt-4">
                   <span>✓ Instant access</span>
                   <span>✓ Secure payment</span>
-                  <span>✓ PDF + Audio</span>
+                  <span>✓ 8 file formats</span>
                 </div>
               </div>
 
@@ -143,10 +150,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div>
                 <h3 className="font-bold text-lg mb-4">What&apos;s Included:</h3>
                 <ul className="space-y-3">
-                  {product.includes.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
+                  {packageIcons.map((item) => (
+                    <li key={item.name} className="flex items-start gap-3">
+                      <div className="w-8 h-8 bg-brand-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-4 h-4 text-brand-gold" />
+                      </div>
+                      <div>
+                        <span className="font-medium">{item.name}</span>
+                        <span className="text-gray-500 text-sm ml-2">— {item.desc}</span>
+                      </div>
                     </li>
                   ))}
                 </ul>
