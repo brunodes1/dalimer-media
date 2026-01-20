@@ -1,204 +1,179 @@
-// Product data - matches Shopify store
-// DM Intermedia Classic Literature Collection
-
 export interface Product {
   id: string;
   slug: string;
-  shopifyProductId: string;
   title: string;
   author: string;
   description: string;
   long_description: string;
   price: number;
   compareAtPrice: number;
-  color_gradient: string;
   tags: string[];
-  includes: string[];
+  color_gradient: string;
+  shopifyProductId: string;
+  coverImage: string;
 }
-
-export const SHOPIFY_CONFIG = {
-  domain: 'jedbci-wm.myshopify.com',
-  storefrontAccessToken: '82abae13d510e20cdafcd3ac827252e9',
-};
 
 export const products: Product[] = [
   {
-    id: "don-quixote",
+    id: "dm-01",
     slug: "don-quixote",
-    shopifyProductId: "15463048937545",
     title: "Don Quixote",
     author: "Miguel de Cervantes",
-    description: "The first modern novel and greatest work of Spanish literature. Follow the adventures of a delusional knight and his faithful squire.",
+    description: "The original novel that invented modern fiction - a hilarious and heartbreaking tale of dreams vs reality.",
     long_description: "Cervantes' masterpiece follows an aging gentleman who loses his sanity from reading too many chivalric romances and sets out to revive knight-errantry. With his loyal squire Sancho Panza, Don Quixote's adventures satirize romantic idealism while celebrating the power of imagination and dreams.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-amber-700 to-orange-900",
     tags: ["Classic", "Spanish Literature", "Satire", "Adventure"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    color_gradient: "from-amber-700 to-amber-900",
+    shopifyProductId: "15463048937545",
+    coverImage: "/covers/don-quixote.png",
   },
   {
-    id: "tale-of-two-cities",
+    id: "dm-02",
     slug: "tale-of-two-cities",
-    shopifyProductId: "15463049691209",
     title: "A Tale of Two Cities",
     author: "Charles Dickens",
-    description: "The best-selling novel of all time. A story of love, sacrifice, and resurrection set during the French Revolution.",
-    long_description: "Dickens' historical masterpiece weaves between London and Paris during the turbulent years of the French Revolution. Through unforgettable characters like Sydney Carton and Charles Darnay, it explores themes of resurrection, sacrifice, and the possibility of redemption in the darkest times.",
+    description: "Love, sacrifice, and revolution in the shadow of the guillotine.",
+    long_description: "Set against the backdrop of the French Revolution, Dickens weaves a tale of resurrection and sacrifice. From the storming of the Bastille to the Reign of Terror, this epic follows characters whose fates intertwine across London and Paris in one of literature's greatest stories of redemption.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-red-800 to-red-950",
-    tags: ["Classic", "Historical Fiction", "British Literature", "Revolution"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    tags: ["Classic", "Historical Fiction", "Romance", "Revolution"],
+    color_gradient: "from-red-800 to-gray-900",
+    shopifyProductId: "15463049691209",
+    coverImage: "/covers/tale-of-two-cities.png",
   },
   {
-    id: "alice-in-wonderland",
+    id: "dm-03",
     slug: "alice-in-wonderland",
-    shopifyProductId: "15463050510409",
-    title: "Alice's Adventures in Wonderland",
+    title: "Alice in Wonderland",
     author: "Lewis Carroll",
-    description: "Down the rabbit hole into a world of wonder, wordplay, and surreal wisdom that has captivated readers for generations.",
-    long_description: "Lewis Carroll's mathematical mind created a wonderland of logic puzzles, linguistic playfulness, and philosophical depth disguised as a children's story. Follow Alice through a world where nothing is quite what it seems and every character speaks in riddles.",
+    description: "Fall down the rabbit hole into a world where nothing is quite what it seems.",
+    long_description: "Lewis Carroll's beloved tale follows young Alice as she tumbles into a fantastical underground world filled with peculiar creatures and nonsensical logic. From the Mad Hatter's tea party to the Queen of Hearts' croquet game, this timeless story delights readers with its wit, wordplay, and imagination.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-sky-500 to-indigo-600",
-    tags: ["Classic", "Fantasy", "Children's Literature", "Surreal"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    tags: ["Classic", "Fantasy", "Children's Literature", "British"],
+    color_gradient: "from-sky-400 to-purple-600",
+    shopifyProductId: "15463050510409",
+    coverImage: "/covers/alice-in-wonderland.png",
   },
   {
-    id: "count-of-monte-cristo",
+    id: "dm-04",
     slug: "count-of-monte-cristo",
-    shopifyProductId: "15463052607561",
     title: "The Count of Monte Cristo",
     author: "Alexandre Dumas",
-    description: "The ultimate tale of betrayal, imprisonment, and elaborate revenge. A wronged man's transformation into an instrument of fate.",
-    long_description: "Dumas' epic adventure follows Edmond Dantès from wrongful imprisonment to his emergence as the wealthy Count of Monte Cristo. Armed with a vast fortune and burning desire for justice, he methodically confronts those who destroyed his life in this timeless exploration of vengeance and redemption.",
+    description: "The ultimate tale of betrayal, imprisonment, and elaborate revenge.",
+    long_description: "Wrongfully imprisoned for fourteen years, Edmond Dantès escapes and discovers a vast treasure. Reinventing himself as the mysterious Count of Monte Cristo, he methodically destroys those who betrayed him. This epic adventure explores justice, mercy, and the consequences of vengeance.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-slate-700 to-slate-900",
     tags: ["Classic", "Adventure", "French Literature", "Revenge"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    color_gradient: "from-emerald-700 to-slate-900",
+    shopifyProductId: "15463052607561",
+    coverImage: "/covers/count-of-monte-cristo.png",
   },
   {
-    id: "anne-of-green-gables",
+    id: "dm-05",
     slug: "anne-of-green-gables",
-    shopifyProductId: "15463066107977",
     title: "Anne of Green Gables",
     author: "L.M. Montgomery",
-    description: "The beloved story of an imaginative orphan who transforms a quiet farm and everyone she meets with her irrepressible spirit.",
-    long_description: "When Matthew and Marilla Cuthbert adopt red-haired, talkative Anne Shirley by mistake, their quiet lives at Green Gables are forever changed. Montgomery's beloved novel celebrates imagination, friendship, and finding where you belong.",
+    description: "An imaginative orphan transforms a quiet farm and the hearts of everyone she meets.",
+    long_description: "When Matthew and Marilla Cuthbert accidentally adopt talkative, red-haired Anne Shirley instead of a boy, their lives change forever. Set on Prince Edward Island, this heartwarming story follows Anne's adventures, mishaps, and growth from an imaginative orphan to a beloved young woman.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-green-600 to-emerald-800",
-    tags: ["Classic", "Coming-of-Age", "Canadian Literature", "Family"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    tags: ["Classic", "Coming of Age", "Canadian Literature", "Family"],
+    color_gradient: "from-green-600 to-amber-700",
+    shopifyProductId: "15463066107977",
+    coverImage: "/covers/anne-of-green-gables.png",
   },
   {
-    id: "black-beauty",
+    id: "dm-06",
     slug: "black-beauty",
-    shopifyProductId: "15463068041289",
     title: "Black Beauty",
     author: "Anna Sewell",
-    description: "The autobiography of a horse that changed how the world treats animals. A timeless story of kindness and compassion.",
-    long_description: "Told from the perspective of a horse, Sewell's only novel follows Black Beauty through various owners—kind and cruel—in Victorian England. This groundbreaking work sparked animal welfare reforms and remains a powerful plea for compassion toward all creatures.",
+    description: "The autobiography of a horse that changed how we treat animals forever.",
+    long_description: "Narrated by the horse himself, Black Beauty's life journey from a happy colt to a London cab horse exposes the cruelty and kindness humans show to animals. This groundbreaking novel sparked real reform in animal welfare and remains a powerful plea for compassion toward all creatures.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-stone-700 to-stone-900",
-    tags: ["Classic", "Animals", "Victorian", "Social Commentary"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    tags: ["Classic", "Animals", "Social Commentary", "Victorian"],
+    color_gradient: "from-stone-800 to-stone-950",
+    shopifyProductId: "15463068041289",
+    coverImage: "/covers/black-beauty.png",
   },
   {
-    id: "pride-and-prejudice",
+    id: "dm-07",
     slug: "pride-and-prejudice",
-    shopifyProductId: "15463068893257",
     title: "Pride and Prejudice",
     author: "Jane Austen",
-    description: "The original enemies-to-lovers romance that defined the genre. Wit, social commentary, and Mr. Darcy await.",
-    long_description: "Jane Austen's masterpiece of wit, social commentary, and swoon-worthy romance has captivated readers for over 200 years. Follow Elizabeth Bennet as she navigates society, family, and her complicated feelings for the proud Mr. Darcy.",
+    description: "The witty battle of wills between Elizabeth Bennet and Mr. Darcy.",
+    long_description: "In Regency England, the spirited Elizabeth Bennet clashes with the proud Mr. Darcy, leading to one of literature's greatest love stories. Austen's sharp social commentary and brilliant dialogue create an unforgettable exploration of class, marriage, and the journey from prejudice to understanding.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-pink-500 to-rose-700",
     tags: ["Classic", "Romance", "British Literature", "Social Commentary"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    color_gradient: "from-teal-700 to-emerald-900",
+    shopifyProductId: "15463068893257",
+    coverImage: "/covers/pride-and-prejudice.png",
   },
   {
-    id: "frankenstein",
+    id: "dm-08",
     slug: "frankenstein",
-    shopifyProductId: "15463071088713",
     title: "Frankenstein",
     author: "Mary Shelley",
-    description: "A 19-year-old invented science fiction. The real story is darker and more profound than any movie adaptation.",
-    long_description: "Mary Shelley's groundbreaking novel explores creation, responsibility, and what it means to be human. Victor Frankenstein's ambitious experiment and its tragic consequences raise questions about science and ethics that remain urgently relevant today.",
+    description: "The original science fiction horror that asks: what makes us human?",
+    long_description: "Victor Frankenstein's obsession with creating life leads to a creature rejected by society and consumed by loneliness. Mary Shelley's Gothic masterpiece explores ambition, responsibility, and the consequences of playing God—themes that resonate even more powerfully in our age of AI and genetic engineering.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-emerald-700 to-emerald-900",
-    tags: ["Classic", "Gothic", "Horror", "Science Fiction"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    tags: ["Classic", "Gothic", "Science Fiction", "Horror"],
+    color_gradient: "from-gray-700 to-green-900",
+    shopifyProductId: "15463071088713",
+    coverImage: "/covers/frankenstein.png",
   },
   {
-    id: "jane-eyre",
+    id: "dm-09",
     slug: "jane-eyre",
-    shopifyProductId: "15463077314633",
     title: "Jane Eyre",
     author: "Charlotte Brontë",
-    description: "The revolutionary tale of a woman who demanded equality in love. Gothic romance meets feminist manifesto.",
-    long_description: "Charlotte Brontë's passionate masterpiece follows the orphaned Jane from a cruel childhood to her position as governess at mysterious Thornfield Hall. Her relationship with the brooding Mr. Rochester challenges every convention of Victorian society.",
+    description: "A plain governess, a brooding master, and a secret that changes everything.",
+    long_description: "Orphaned Jane Eyre survives a cruel childhood to become governess at mysterious Thornfield Hall, where she falls for the enigmatic Mr. Rochester. This revolutionary novel gave voice to female independence and passion, creating a heroine who refuses to compromise her integrity for love.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-purple-700 to-purple-900",
     tags: ["Classic", "Gothic", "Romance", "Feminist"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    color_gradient: "from-rose-800 to-slate-800",
+    shopifyProductId: "15463077314633",
+    coverImage: "/covers/jane-eyre.png",
   },
   {
-    id: "dracula",
+    id: "dm-10",
     slug: "dracula",
-    shopifyProductId: "15463084949577",
     title: "Dracula",
     author: "Bram Stoker",
-    description: "The novel that created the modern vampire. Every adaptation got something wrong—here's the terrifying original.",
-    long_description: "Bram Stoker's epistolary masterpiece defined vampire mythology for generations. Through journals, letters, and newspaper clippings, experience the Count's invasion of England and the desperate band of heroes who must stop him.",
+    description: "The immortal vampire tale that defined the horror genre.",
+    long_description: "When young solicitor Jonathan Harker visits Count Dracula's Transylvanian castle, he unleashes an ancient evil upon Victorian England. Told through letters, diaries, and newspaper clippings, Stoker's masterpiece established vampire mythology and continues to terrify readers over a century later.",
     price: 14.99,
     compareAtPrice: 19.99,
+    tags: ["Classic", "Gothic", "Horror", "Victorian"],
     color_gradient: "from-red-900 to-black",
-    tags: ["Classic", "Gothic", "Horror", "Vampire"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
+    shopifyProductId: "15463084949577",
+    coverImage: "/covers/dracula.png",
   },
   {
-    id: "art-of-war",
+    id: "dm-11",
     slug: "art-of-war",
-    shopifyProductId: "15463086391369",
     title: "The Art of War",
     author: "Sun Tzu",
-    description: "The 2,500-year-old strategy manual that every business leader, coach, and entrepreneur still quotes today.",
-    long_description: "Sun Tzu's ancient Chinese military treatise has become essential reading for anyone engaged in strategic competition. Its principles on leadership, planning, and winning without fighting apply to business, sports, and life itself.",
+    description: "Ancient wisdom on strategy that shapes business and leadership today.",
+    long_description: "Written over 2,500 years ago, Sun Tzu's treatise on military strategy transcends warfare to offer timeless principles for competition, leadership, and conflict resolution. From 'know your enemy' to 'supreme excellence is winning without fighting,' these teachings guide modern executives, coaches, and strategists worldwide.",
     price: 14.99,
     compareAtPrice: 19.99,
-    color_gradient: "from-red-700 to-red-900",
-    tags: ["Classic", "Strategy", "Leadership", "Philosophy"],
-    includes: ["Audio Conversation", "Video Overview", "Infographic", "Detailed Report", "Slide Deck", "Original Text", "Cover Art", "Summary Guide"]
-  }
-];
-
-export const bundles = [
-  { 
-    id: "three-pack", 
-    title: "Choose Any 3 Titles", 
-    price: 34.99, 
-    savings: "Save $10", 
-    description: "Pick your three favorite classics" 
+    tags: ["Classic", "Philosophy", "Strategy", "Leadership"],
+    color_gradient: "from-amber-600 to-red-800",
+    shopifyProductId: "15463086391369",
+    coverImage: "/covers/art-of-war.png",
   },
-  { 
-    id: "complete-collection", 
-    title: "Complete Collection", 
-    price: 99.99, 
-    savings: "Save $65", 
-    description: "All 11 titles - best value" 
-  }
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
-  return products.find(p => p.slug === slug);
+  return products.find((product) => product.slug === slug);
 }
 
 export function getProductById(id: string): Product | undefined {
-  return products.find(p => p.id === id);
+  return products.find((product) => product.id === id);
 }

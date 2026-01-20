@@ -1,7 +1,8 @@
 import { products, getProductBySlug } from "@/lib/products";
 import { notFound } from "next/navigation";
-import { Headphones, FileText, ImageIcon, ArrowLeft, Video, BookOpen, Presentation, Image, FileType } from "lucide-react";
+import { Headphones, FileText, ImageIcon, ArrowLeft, Video, BookOpen, Presentation, Image, FileType, Play } from "lucide-react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 
 export async function generateStaticParams() {
@@ -70,26 +71,40 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Product Image/Visual */}
+            {/* Product Image */}
             <div>
-              <div className={`aspect-square rounded-2xl bg-gradient-to-br ${product.color_gradient} flex items-center justify-center shadow-2xl`}>
-                <div className="text-center text-white">
-                  <span className="text-8xl font-serif font-bold opacity-40">
-                    {product.title.charAt(0)}
-                  </span>
-                  <p className="text-xl font-semibold mt-4 opacity-80">{product.title}</p>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl relative bg-gray-100">
+                <NextImage
+                  src={product.coverImage}
+                  alt={`${product.title} cover`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
               </div>
               
-              {/* Audio Preview Placeholder */}
+              {/* Audio Preview */}
               <div className="mt-6 bg-brand-light rounded-xl p-4">
-                <p className="text-sm font-semibold mb-2 flex items-center gap-2">
+                <p className="text-sm font-semibold mb-3 flex items-center gap-2">
                   <Headphones className="w-4 h-4" />
                   Audio Preview
                 </p>
-                <div className="bg-white rounded-lg p-4 text-center text-gray-500">
-                  <p className="text-sm">🎧 Sample audio coming soon</p>
-                  <p className="text-xs mt-1">Full 20-30 min podcast included with purchase</p>
+                <div className="bg-white rounded-lg p-4">
+                  <div className="flex items-center gap-4">
+                    <button className="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors flex-shrink-0">
+                      <Play className="w-5 h-5 text-brand-navy ml-1" />
+                    </button>
+                    <div className="flex-1">
+                      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div className="h-full w-0 bg-brand-gold rounded-full"></div>
+                      </div>
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>0:00</span>
+                        <span>Sample • Full 20-30 min included</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -217,13 +232,21 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <Link 
                 key={related.id}
                 href={`/titles/${related.slug}`}
-                className="product-card bg-white rounded-xl overflow-hidden shadow-lg"
+                className="product-card bg-white rounded-xl overflow-hidden shadow-lg group"
               >
-                <div className={`h-24 bg-gradient-to-br ${related.color_gradient}`} />
+                <div className="h-40 relative overflow-hidden bg-gray-100">
+                  <NextImage
+                    src={related.coverImage}
+                    alt={`${related.title} cover`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
                 <div className="p-4">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="font-bold">{related.title}</h3>
+                      <h3 className="font-bold group-hover:text-brand-gold transition-colors">{related.title}</h3>
                       <p className="text-sm text-gray-500">{related.author}</p>
                     </div>
                     <span className="bg-brand-gold text-brand-navy text-sm font-bold px-2 py-1 rounded">
