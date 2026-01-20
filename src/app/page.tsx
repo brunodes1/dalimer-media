@@ -130,25 +130,39 @@ export default function Home() {
       <section className="py-16 px-6 bg-brand-navy text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Get the Complete Collection
+            Save More with Bundles
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            All 11 classic literature packages at one incredible price. 
+            Choose your own collection and save up to 40%. 
             Perfect for educators, book clubs, or dedicated readers.
           </p>
-          <div className="bg-white/10 rounded-2xl p-8 inline-block">
-            <div className="flex items-baseline justify-center gap-2 mb-4">
-              <span className="text-5xl font-bold text-brand-gold">$99.99</span>
-              <span className="text-xl text-gray-400 line-through">$164.89</span>
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white/10 rounded-2xl p-6">
+              <h3 className="text-xl font-bold mb-2">3-Pack</h3>
+              <p className="text-3xl font-bold text-brand-gold mb-2">$34.99</p>
+              <p className="text-sm text-gray-400 line-through">$44.97</p>
+              <p className="text-sm text-gray-300 mt-2">Pick any 3 titles</p>
             </div>
-            <p className="text-sm text-gray-300 mb-6">Save over $65 with the complete bundle</p>
-            <Link 
-              href="/bundles"
-              className="bg-brand-gold text-brand-navy px-8 py-4 rounded-xl font-bold hover:bg-yellow-400 transition-colors inline-block"
-            >
-              View Bundle Options
-            </Link>
+            <div className="bg-white/10 rounded-2xl p-6 ring-2 ring-brand-gold">
+              <div className="text-xs font-bold text-brand-gold mb-2">MOST POPULAR</div>
+              <h3 className="text-xl font-bold mb-2">5-Pack</h3>
+              <p className="text-3xl font-bold text-brand-gold mb-2">$54.99</p>
+              <p className="text-sm text-gray-400 line-through">$74.95</p>
+              <p className="text-sm text-gray-300 mt-2">Pick any 5 titles</p>
+            </div>
+            <div className="bg-white/10 rounded-2xl p-6">
+              <h3 className="text-xl font-bold mb-2">Complete</h3>
+              <p className="text-3xl font-bold text-brand-gold mb-2">$99.99</p>
+              <p className="text-sm text-gray-400 line-through">$164.89</p>
+              <p className="text-sm text-gray-300 mt-2">All 11 titles</p>
+            </div>
           </div>
+          <Link 
+            href="/bundles"
+            className="bg-brand-gold text-brand-navy px-8 py-4 rounded-xl font-bold hover:bg-yellow-400 transition-colors inline-block"
+          >
+            View Bundle Options
+          </Link>
         </div>
       </section>
 
@@ -156,14 +170,7 @@ export default function Home() {
       <section className="py-16 px-6 bg-brand-light">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-8">Why Choose DM Intermedia?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-4xl mb-3">📚</div>
-              <h3 className="font-bold mb-2">Public Domain Sources</h3>
-              <p className="text-sm text-gray-600">
-                All original texts sourced from Project Gutenberg with proper attribution
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-8">
             <div>
               <div className="text-4xl mb-3">🎧</div>
               <h3 className="font-bold mb-2">AI-Enhanced Learning</h3>
@@ -195,9 +202,9 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link href="#titles" className="hover:text-white">Browse Titles</Link></li>
+                <li><Link href="/#titles" className="hover:text-white">Browse Titles</Link></li>
                 <li><Link href="/bundles" className="hover:text-white">Bundles</Link></li>
-                <li><Link href="#how-it-works" className="hover:text-white">How It Works</Link></li>
+                <li><Link href="/#how-it-works" className="hover:text-white">How It Works</Link></li>
               </ul>
             </div>
             <div>
@@ -212,14 +219,19 @@ export default function Home() {
               <h4 className="font-bold mb-4">Contact</h4>
               <p className="text-sm text-gray-400">
                 Questions? Reach out at<br />
-                <a href="mailto:support@dmintermedia.com" className="text-brand-gold hover:underline">
-                  support@dmintermedia.com
+                <a href="mailto:sales@dmintermedia.com" className="text-brand-gold hover:underline">
+                  sales@dmintermedia.com
                 </a>
+              </p>
+              <p className="text-sm text-gray-400 mt-4">
+                <Link href="/contact" className="text-brand-gold hover:underline">
+                  Contact Us →
+                </Link>
               </p>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>© 2026 DM Intermedia. All Rights Reserved.</p>
+            <p>© 2026 Dalimer Corporation. All Rights Reserved.</p>
             <p className="mt-2">Transformative content licensed under CC BY-NC-ND 4.0</p>
           </div>
         </div>
