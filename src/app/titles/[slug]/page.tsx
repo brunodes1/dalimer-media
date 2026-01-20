@@ -1,6 +1,6 @@
 import { products, getProductBySlug } from "@/lib/products";
 import { notFound } from "next/navigation";
-import { Headphones, FileText, ImageIcon, CheckCircle, ArrowLeft, Video, BookOpen, Presentation, Image, FileType } from "lucide-react";
+import { Headphones, FileText, ImageIcon, ArrowLeft, Video, BookOpen, Presentation, Image, FileType } from "lucide-react";
 import Link from "next/link";
 import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 
