@@ -1,76 +1,74 @@
-import { products, bundles } from "@/lib/products";
-import { Headphones, FileText, ImageIcon, CheckCircle, Sparkles, Zap, BookOpen } from "lucide-react";
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { products } from "@/lib/products";
+import { Headphones, FileText, ImageIcon, Video, BookOpen, Presentation, FileType, ArrowRight, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
-    <div>
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-pattern bg-gradient-to-br from-brand-cream to-brand-light py-20 px-6">
+      <section className="bg-gradient-to-br from-brand-navy via-brand-navy to-slate-800 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-block bg-brand-gold/20 text-brand-navy px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            ✨ New: AI-Powered Learning Experiences
+          <div className="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-gold px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <Sparkles className="w-4 h-4" />
+            Launch Special: 25% Off All Titles
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Classic Literature,{" "}
-            <span className="gradient-text">Reimagined</span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Classic Literature,<br />
+            <span className="text-brand-gold">Reimagined</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Transform the world&apos;s greatest books into engaging podcasts, visual guides, 
-            and study materials. Learn in minutes what used to take hours.
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+            Experience timeless stories through AI-powered podcasts, visual guides, 
+            and comprehensive study materials. Perfect for modern learners.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <Link 
               href="#titles" 
-              className="bg-brand-navy text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-brand-navy/90 transition-colors btn-pulse"
+              className="bg-brand-gold text-brand-navy px-8 py-4 rounded-xl font-bold hover:bg-yellow-400 transition-colors inline-flex items-center justify-center gap-2"
             >
-              Browse All Titles
-            </a>
-            <a 
-              href="#bundles" 
-              className="bg-white text-brand-navy px-8 py-4 rounded-xl font-semibold text-lg border-2 border-brand-navy hover:bg-brand-light transition-colors"
+              Browse 11 Titles
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link 
+              href="#how-it-works" 
+              className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors"
             >
-              View Bundle Deals
-            </a>
+              How It Works
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* What You Get Section */}
-      <section className="py-16 px-6 bg-white">
+      {/* What's Included */}
+      <section id="how-it-works" className="py-16 px-6 bg-brand-light">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Every Package Includes 8 Files
+          <h2 className="text-3xl font-bold text-center mb-4">
+            8 Files Per Title
           </h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-gold/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Headphones className="w-8 h-8 text-brand-gold" />
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Every collection includes everything you need to truly understand and enjoy the classics
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: Headphones, name: "Audio Conversation", desc: "AI podcast discussion" },
+              { icon: Video, name: "Video Overview", desc: "Visual presentation" },
+              { icon: ImageIcon, name: "Infographic", desc: "Key concepts visualized" },
+              { icon: FileText, name: "Detailed Report", desc: "In-depth analysis" },
+              { icon: Presentation, name: "Slide Deck", desc: "Presentation ready" },
+              { icon: BookOpen, name: "Original Text", desc: "Complete source" },
+              { icon: ImageIcon, name: "Cover Art", desc: "High-quality image" },
+              { icon: FileType, name: "Summary Guide", desc: "Quick reference" },
+            ].map((item) => (
+              <div key={item.name} className="bg-white rounded-xl p-6 text-center shadow-sm">
+                <div className="w-12 h-12 bg-brand-gold/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="w-6 h-6 text-brand-gold" />
+                </div>
+                <h3 className="font-bold text-sm mb-1">{item.name}</h3>
+                <p className="text-xs text-gray-500">{item.desc}</p>
               </div>
-              <h3 className="font-semibold mb-2">AI Podcast</h3>
-              <p className="text-gray-600 text-sm">20-30 min engaging conversation that breaks down key themes</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-navy/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-8 h-8 text-brand-navy" />
-              </div>
-              <h3 className="font-semibold mb-2">Study Guide PDF</h3>
-              <p className="text-gray-600 text-sm">Chapter summaries, key quotes, and analysis</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-gold/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <ImageIcon className="w-8 h-8 text-brand-gold" />
-              </div>
-              <h3 className="font-semibold mb-2">Visual Infographic</h3>
-              <p className="text-gray-600 text-sm">Character maps, timelines, and concept visualizations</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-navy/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="w-8 h-8 text-brand-navy" />
-              </div>
-              <h3 className="font-semibold mb-2">Original Text</h3>
-              <p className="text-gray-600 text-sm">Complete public domain source text included</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -81,44 +79,46 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-4">
             Our Collection
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            11 timeless classics transformed into modern learning experiences. 
-            Each package is just $14.99.
+          <p className="text-center text-gray-600 mb-12">
+            11 carefully curated classics, each transformed into a complete learning package
           </p>
-          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <Link 
-                key={product.id} 
+                key={product.id}
                 href={`/titles/${product.slug}`}
-                className="product-card bg-white rounded-2xl overflow-hidden shadow-lg"
+                className="product-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
               >
-                <div className={`h-32 bg-gradient-to-br ${product.color_gradient} flex items-center justify-center`}>
-                  <span className="text-white text-4xl font-serif font-bold opacity-30">
-                    {product.title.charAt(0)}
-                  </span>
+                <div className="aspect-[4/3] relative overflow-hidden bg-gray-100">
+                  <Image
+                    src={product.coverImage}
+                    alt={`${product.title} cover`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute top-3 right-3 bg-brand-gold text-brand-navy text-sm font-bold px-3 py-1 rounded-full">
+                    ${product.price}
+                  </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-lg">{product.title}</h3>
-                    <span className="bg-brand-gold text-brand-navy text-sm font-bold px-2 py-1 rounded">
-                      ${product.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-500 text-sm mb-3">by {product.author}</p>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                    {product.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {product.tags.slice(0, 3).map((tag) => (
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {product.tags.slice(0, 2).map((tag) => (
                       <span 
-                        key={tag} 
-                        className="bg-brand-light text-brand-navy text-xs px-2 py-1 rounded"
+                        key={tag}
+                        className="bg-brand-light text-brand-navy text-xs px-2 py-1 rounded-full"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
+                  <h3 className="font-bold text-lg mb-1 group-hover:text-brand-gold transition-colors">
+                    {product.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 mb-3">by {product.author}</p>
+                  <p className="text-sm text-gray-600 line-clamp-2">
+                    {product.description}
+                  </p>
                 </div>
               </Link>
             ))}
@@ -126,119 +126,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bundles Section */}
-      <section id="bundles" className="py-16 px-6 bg-brand-navy text-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Bundle & Save
+      {/* Bundle CTA */}
+      <section className="py-16 px-6 bg-brand-navy text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Get the Complete Collection
           </h2>
-          <p className="text-center text-gray-300 mb-12">
-            Get more value with our bundle deals
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            All 11 classic literature packages at one incredible price. 
+            Perfect for educators, book clubs, or dedicated readers.
           </p>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {bundles.map((bundle) => (
-              <div 
-                key={bundle.id}
-                className="bg-white/10 backdrop-blur rounded-2xl p-8 border border-white/20"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold">{bundle.title}</h3>
-                    <p className="text-gray-300">{bundle.description}</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-3xl font-bold text-brand-gold">${bundle.price}</span>
-                    <p className="text-green-400 text-sm font-semibold">{bundle.savings}</p>
-                  </div>
-                </div>
-                <ul className="space-y-2 mb-6">
-                  {bundle.id === "complete-collection" ? (
-                    <>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>All 11 title packages</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>88 total files</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>10+ hours of podcast content</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>Complete PDF library</span>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>Choose any 3 titles</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>24 total files</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>3+ hours of podcast content</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-brand-gold" />
-                        <span>All included PDFs & guides</span>
-                      </li>
-                    </>
-                  )}
-                </ul>
-                <button className="w-full bg-brand-gold text-brand-navy py-3 rounded-xl font-semibold hover:bg-yellow-500 transition-colors">
-                  Get {bundle.title}
-                </button>
-              </div>
-            ))}
+          <div className="bg-white/10 rounded-2xl p-8 inline-block">
+            <div className="flex items-baseline justify-center gap-2 mb-4">
+              <span className="text-5xl font-bold text-brand-gold">$99.99</span>
+              <span className="text-xl text-gray-400 line-through">$164.89</span>
+            </div>
+            <p className="text-sm text-gray-300 mb-6">Save over $65 with the complete bundle</p>
+            <Link 
+              href="/bundles"
+              className="bg-brand-gold text-brand-navy px-8 py-4 rounded-xl font-bold hover:bg-yellow-400 transition-colors inline-block"
+            >
+              View Bundle Options
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Social Proof / CTA Section */}
-      <section className="py-16 px-6 bg-gradient-to-br from-brand-light to-white">
+      {/* Trust Section */}
+      <section className="py-16 px-6 bg-brand-light">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center gap-2 mb-6">
-            <Sparkles className="w-6 h-6 text-brand-gold" />
-            <Zap className="w-6 h-6 text-brand-gold" />
-            <Sparkles className="w-6 h-6 text-brand-gold" />
-          </div>
-          <h2 className="text-3xl font-bold mb-4">
-            Why Read When You Can Listen & Learn?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Our AI-powered breakdowns transform dense classics into engaging conversations. 
-            Perfect for commutes, workouts, or anytime learning.
-          </p>
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-8">
+          <h2 className="text-2xl font-bold mb-8">Why Choose DM Intermedia?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <p className="text-4xl font-bold text-brand-navy">20+</p>
-              <p className="text-gray-600">Minutes per podcast</p>
+              <div className="text-4xl mb-3">📚</div>
+              <h3 className="font-bold mb-2">Public Domain Sources</h3>
+              <p className="text-sm text-gray-600">
+                All original texts sourced from Project Gutenberg with proper attribution
+              </p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-brand-navy">11</p>
-              <p className="text-gray-600">Classic titles</p>
+              <div className="text-4xl mb-3">🎧</div>
+              <h3 className="font-bold mb-2">AI-Enhanced Learning</h3>
+              <p className="text-sm text-gray-600">
+                Modern podcast discussions and visual guides for today&apos;s learners
+              </p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-brand-navy">$14.99</p>
-              <p className="text-gray-600">Per package</p>
+              <div className="text-4xl mb-3">⚡</div>
+              <h3 className="font-bold mb-2">Instant Download</h3>
+              <p className="text-sm text-gray-600">
+                Get all 8 files immediately after purchase, ready to use
+              </p>
             </div>
           </div>
-          <a 
-            href="#titles"
-            className="inline-block bg-brand-navy text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-brand-navy/90 transition-colors"
-          >
-            Start Learning Today
-          </a>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-brand-navy text-white py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-bold text-xl mb-4">DM Intermedia</h3>
+              <p className="text-sm text-gray-400">
+                Classic literature transformed for modern learners.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="#titles" className="hover:text-white">Browse Titles</Link></li>
+                <li><Link href="/bundles" className="hover:text-white">Bundles</Link></li>
+                <li><Link href="#how-it-works" className="hover:text-white">How It Works</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="/terms" className="hover:text-white">Terms of Service</Link></li>
+                <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+                <li><Link href="/license" className="hover:text-white">License Info</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Contact</h4>
+              <p className="text-sm text-gray-400">
+                Questions? Reach out at<br />
+                <a href="mailto:support@dmintermedia.com" className="text-brand-gold hover:underline">
+                  support@dmintermedia.com
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+            <p>© 2026 DM Intermedia. All Rights Reserved.</p>
+            <p className="mt-2">Transformative content licensed under CC BY-NC-ND 4.0</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
