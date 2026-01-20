@@ -70,7 +70,7 @@ export default function ContactPage() {
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
                   <h3 className="text-xl font-bold text-brand-navy mb-2">Message Sent!</h3>
-                  <p className="text-gray-600">We&apos;ll get back to you within 24-48 hours.</p>
+                  <p className="text-gray-600">We&apos;ll get back to you within 2 business hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -174,7 +174,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-navy">Response Time</h3>
-                  <p className="text-gray-600">Within 24-48 business hours</p>
+                  <p className="text-gray-600">Within 2 business hours</p>
                   <p className="text-gray-500 text-sm">Monday - Friday, 9am - 5pm EST</p>
                 </div>
               </div>
