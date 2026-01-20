@@ -13,6 +13,22 @@ export interface Product {
   coverImage: string;
 }
 
+export interface Bundle {
+  id: string;
+  slug: string;
+  name: string;
+  description: string;
+  productIds: string[];
+  price: number;
+  compareAtPrice: number;
+  shopifyProductId: string;
+}
+
+export const SHOPIFY_CONFIG = {
+  domain: "jedbci-wm.myshopify.com",
+  storefrontAccessToken: "your-storefront-access-token", // Update if needed
+};
+
 export const products: Product[] = [
   {
     id: "dm-01",
@@ -170,6 +186,29 @@ export const products: Product[] = [
   },
 ];
 
+export const bundles: Bundle[] = [
+  {
+    id: "bundle-3",
+    slug: "starter-pack",
+    name: "Starter Pack",
+    description: "Choose any 3 titles",
+    productIds: [],
+    price: 34.99,
+    compareAtPrice: 44.97,
+    shopifyProductId: "",
+  },
+  {
+    id: "bundle-all",
+    slug: "complete-collection",
+    name: "Complete Collection",
+    description: "All 11 classic literature packages",
+    productIds: products.map(p => p.id),
+    price: 99.99,
+    compareAtPrice: 164.89,
+    shopifyProductId: "",
+  },
+];
+
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);
 }
@@ -177,3 +216,9 @@ export function getProductBySlug(slug: string): Product | undefined {
 export function getProductById(id: string): Product | undefined {
   return products.find((product) => product.id === id);
 }
+
+export function getBundleBySlug(slug: string): Bundle | undefined {
+  return bundles.find((bundle) => bundle.slug === slug);
+}
+
+
