@@ -8,15 +8,74 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DM Intermedia - Classic Literature Reimagined",
-  description: "Experience timeless stories through AI-powered podcasts, visual guides, and comprehensive study materials. Perfect for modern learners.",
-  keywords: ["classic literature", "audiobooks", "study guides", "AI podcasts", "book summaries"],
+  metadataBase: new URL('https://www.dmintermedia.com'),
+  title: {
+    default: "DM Intermedia - Classic Literature Reimagined",
+    template: "%s | DM Intermedia",
+  },
+  description: "Experience timeless stories through AI-powered podcasts, visual guides, and comprehensive study materials. 11 classic literature titles transformed for modern learners.",
+  keywords: [
+    "classic literature",
+    "audiobooks",
+    "study guides",
+    "AI podcasts",
+    "book summaries",
+    "Don Quixote",
+    "Pride and Prejudice",
+    "Frankenstein",
+    "Dracula",
+    "Jane Eyre",
+    "Alice in Wonderland",
+    "The Art of War",
+    "A Tale of Two Cities",
+    "The Count of Monte Cristo",
+    "Anne of Green Gables",
+    "Black Beauty",
+    "digital learning",
+    "educational content",
+  ],
+  authors: [{ name: "DM Intermedia" }],
+  creator: "DM Intermedia",
+  publisher: "DM Intermedia",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "DM Intermedia - Classic Literature Reimagined",
-    description: "Experience timeless stories through AI-powered podcasts, visual guides, and comprehensive study materials.",
+    type: "website",
+    locale: "en_US",
     url: "https://www.dmintermedia.com",
     siteName: "DM Intermedia",
-    type: "website",
+    title: "DM Intermedia - Classic Literature Reimagined",
+    description: "Experience timeless stories through AI-powered podcasts, visual guides, and comprehensive study materials. Perfect for modern learners.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DM Intermedia - Classic Literature Reimagined",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DM Intermedia - Classic Literature Reimagined",
+    description: "Experience timeless stories through AI-powered podcasts, visual guides, and comprehensive study materials.",
+    images: ["/og-image.png"],
+    creator: "@dmintermedia",
+  },
+  verification: {
+    google: "your-google-verification-code", // Add your Google Search Console verification code
+  },
+  alternates: {
+    canonical: "https://www.dmintermedia.com",
   },
 };
 
@@ -41,6 +100,27 @@ export default function RootLayout({
             gtag('config', 'G-PTB6QRRYR1');
           `}
         </Script>
+        
+        {/* Structured Data - Organization */}
+        <Script
+          id="structured-data-org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "DM Intermedia",
+              url: "https://www.dmintermedia.com",
+              logo: "https://www.dmintermedia.com/logo.png",
+              description: "Classic literature transformed into modern learning experiences through AI-powered podcasts, visual guides, and study materials.",
+              sameAs: [
+                "https://www.tiktok.com/@dmintermedia",
+                "https://www.instagram.com/dmintermedia",
+                "https://www.youtube.com/@dmintermedia",
+              ],
+            }),
+          }}
+        />
       </head>
       <body className={inter.className}>
         {/* Navigation */}
