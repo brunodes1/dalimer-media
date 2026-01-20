@@ -169,7 +169,7 @@ Edit `src/lib/products.ts` and add new product objects following the existing pa
 - **Hosting**: Vercel
 - **File Storage**: Supabase (optional)
 
-## License
+## License.
 
 © 2026 Dalimer Media Inc. All rights reserved.
 
