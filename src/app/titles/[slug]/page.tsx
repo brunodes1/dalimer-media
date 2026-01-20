@@ -73,12 +73,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Product Image */}
             <div>
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl relative bg-gray-100">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl relative bg-gray-50">
                 <NextImage
                   src={product.coverImage}
                   alt={`${product.title} cover`}
                   fill
-                  className="object-cover"
+                  className="object-contain p-6"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
@@ -234,12 +234,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 href={`/titles/${related.slug}`}
                 className="product-card bg-white rounded-xl overflow-hidden shadow-lg group"
               >
-                <div className="h-40 relative overflow-hidden bg-gray-100">
+                <div className="aspect-[3/4] relative overflow-hidden bg-gray-50">
                   <NextImage
                     src={related.coverImage}
                     alt={`${related.title} cover`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
